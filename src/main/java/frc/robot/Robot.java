@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.*;;
 
 /** This is a demo program showing how to use Mecanum control with the MecanumDrive class. */
 public class Robot extends TimedRobot {
@@ -38,6 +39,14 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
+
+    SmartDashboard.putNumber("Get Left Y", m_driverController.getLeftY());
+    SmartDashboard.putNumber("Get Left X", m_driverController.getLeftX());
+    SmartDashboard.putNumber("Get Right X", m_driverController.getRightX());
+    SmartDashboard.putNumber("Get Raw Axis 1", m_driverController.getRawAxis(1));
+    SmartDashboard.putNumber("Get Raw Axis 2", m_driverController.getRawAxis(2));
+    SmartDashboard.putNumber("Get Raw Axis 3", m_driverController.getRawAxis(3));
+
     // Use the joystick X axis for forward movement, Y axis for lateral
     // movement, and Z axis for rotation.
     m_robotDrive.driveCartesian(-m_driverController.getLeftY(), -m_driverController.getLeftX(), -m_driverController.getRightX());
